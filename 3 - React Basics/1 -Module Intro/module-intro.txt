@@ -1,0 +1,12 @@
+React Basics
+
+This section is on the basics of react and component driven user interfaces
+Building Interactive and Scalable UI's
+
+Module Breakdown 
+
+- React Core Syntax and JSX
+- Working with Components 
+- Working with Data
+
+Build an Expense Tracker, add, remove update expenses with sleek component based UI

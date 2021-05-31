@@ -1,0 +1,16 @@
+Whatr are Components and why is React all about them
+
+React simplifies building user interfaces
+
+Components - React is all about them
+
+All user interfaces are made up of Components
+Examples of components could be repeated items with different data,
+Components are reusable building blocks within your user interface
+
+You combine the building blocks to build a final user interface
+
+This is great for reusablity and seperation of concerns
+
+- reusablity => don't repeat yourself
+- seperation of concerns => Sepeate your code into relevant and sections - this makes the code in react more maintainable and scalable and prevents errors due to muddled code

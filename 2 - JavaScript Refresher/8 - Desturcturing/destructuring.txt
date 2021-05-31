@@ -19,3 +19,19 @@ console.log(age) // Output: undefined // we did not pull out the age from our ob
 To reiterate using the object above, you could nout have the destructured object like this:
 {a} = {name: 'Max', age: 28} 
 console.log(a) // output: undefined -- this is because there is no 'a' key in the object!
+
+// Example from the written resource
+
+// Destructuring can be useful in a function
+
+const printName = (object) => console.log(object.name);
+printName({name: 'Max', age: 28});
+
+Notice how we have to call the whole object then when loging the name data we have to call object.name
+
+Written with destructuring we do not need the whole object just the name. This is an example:
+
+const printName = ({ name }) => console.log(name)
+printName({name: 'Max', age: 28});
+
+Note how it only pulls what is neccassary 

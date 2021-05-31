@@ -1,0 +1,18 @@
+React Code is Written in a Declaritive Way!
+
+How is a Component Built
+
+User Interfaces are about HTML CSS And JS
+
+React combines all these elements
+CSS is the least important part - it is not the focus of react
+React allows you to create reuseable and reactive components consiting of HTML and JS
+
+React is Declaritive
+You will always define the desired end states and let react figure out the desired vanilla JS DOM instructions
+
+THis differs to vanilla JS as you have to define and everything step by step (imperative approach)
+
+Simplified
+
+You build your own custom HTML elements and allow react to do the imperative work

@@ -1,0 +1,11 @@
+When building a react app it is good to start with a tool such as create react app
+
+This allows you to use pre configured folders with basic react code files
+Most importantly with config files that help you build the react app when moving from dev to production
+Also it allows you to have a dev enviroment which loads the react app on a browser
+
+The steps are as follows in the terminal
+
+npx create-react-app [app-name]
+cd [app-name]
+npm start // this runs the local server 
