@@ -1,0 +1,30 @@
+About the Course and Course Outline
+
+The course is organised into 3 main sections
+
+Section 1 - Basics & Foundations - Key Concepts
+Section 2 - Advanced Concepts - Building for Production
+Section 3 - Summaries and Refreshers
+
+Basics and Foundations
+- Components & Building UI'screen
+- Working with Events and Data: "Props" & "State"
+- Styling React Apps & Components
+- Introduction to React Hooks - Very Important**
+
+Advanced Concepts
+
+- Side Effects, Refs & More React Hooks
+- App wide State management with Reacts Context API & Redux - Redux (Very Important)
+- Forms, HTTP Requests & Custom Hooks
+- Routing, Deployment, NextJS (Good for SEO) & more
+
+Summaries and Refreshers
+
+- Javascript Refresher - Core Modern JS features
+- React JS Summary
+
+
+The Course Utilises
+
+Theory/ Small Demos and Examples => More Realistic Examples (Bigger Projects) => Challenges & Excersizes

@@ -1,0 +1,26 @@
+Arrow functions
+
+Common in ES6
+
+A sleeker way of writing functions,
+Allows us to define a function as a constant,
+Beware of the Lexical "this" => I still do not understand THIS (You cannot use this - within an arrow function as it will pertain to the window object)
+
+ES5
+
+function hello(x) {
+  return `${x} World`
+}
+
+hello("Hello")
+
+ES6
+
+const hello = (x) {
+  return `${x} World`
+}
+
+console.log(hello('hello'))
+
+Great when wanting to recieve a value/values from another function and define it as a new variable
+

@@ -1,0 +1,15 @@
+Alternatives to React.Javascript
+
+React is a lean and component based UI Library. Certain features such as routing are added via community packages.
+
+When using react you will often need to install third party libraries to add certain functionality to your web app. React itself just focuses on COMPONTENTS and how they are rendered 
+
+Alterative - Angular
+
+Focuses on on compontent based web apps just like react but is more of a fully fledged framework. Uses typescript from the get go. 
+Can be overkill for smaller projects, but for larger projects there is more built into the framework from the get go.
+
+Alternative - Vue.js
+
+Again has component based ui design. Vue is seen as a middle ground between React and Angular - Includes extra features such as routing. It is a bit less popular than React & Angular.
+

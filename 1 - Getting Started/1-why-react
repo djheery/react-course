@@ -1,0 +1,15 @@
+Why Use React?
+
+Using regular Javascript can lead to an imperative approach - Describing what needs to be done action after action, which can lead to longer code than nescassary.
+React offers a way to combat this by spliting code up into reuseable modules. This makes the code reusable and on top of that maintainable.
+
+"Stops us reinventing the wheel"
+
+React is about spliting code into small and maintainable chunks, react does the "heavy lifting" by rendering the code on the screen, and many "lower level" tasks such as writing buttons, and other remedial tasks are defined by the React Library.
+
+As a React Developer you work on a higher level not getting bogged down in remedial tasks.
+
+Makes building rich content driven modern interfaces easier and more maintainable. 
+
+Declaritive, component focused approach.
+

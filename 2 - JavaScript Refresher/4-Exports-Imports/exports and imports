@@ -1,0 +1,58 @@
+Exports and Imports
+
+Javascript code is split up over multiple files
+
+The idea behind export and import statements is that you can export and import functions, variables etc from another file.
+
+An example: (...Represents a File... )
+
+
+....[Person.js]...
+
+const person = {
+  name: 'Daniel'
+}
+
+export default person
+
+..................
+...[Utility.js]...
+
+export const clean = (x) => x * 2
+export const data = 10;
+
+..................
+.....[app.js].....
+
+import person from './person.js'   // If you have a default you can name it whatever you want this is why it is imported twice to show this possibility
+import prs from './person.js'      // person or prs is fine as it is whatever you want
+
+import { data } from './Utility.js'  // The import syntax is different as these are named exports thus we need to use the {curly braces}
+import { clean } from './Utility.js' // note how you have to specifically target the name of the item being imported { data } || { clean }
+
+...................
+
+It will not run like this in a browser as imports and exports are not fully supported as of May 2021, thus we will need to transpile our code to ES5
+
+Other Syntax for Imports
+
+DEFAULT EXPORTS allow you to name the import directly as with person above
+
+Named Exports have to be directly targeted as above
+import { data } from './Utility.js''
+
+BUT!
+ 
+You can also define an alias directly on import e.g.
+
+import { data as theFuckingBigD } from './Utility.js'
+
+ORR
+
+You can import all exported objects from a file and give it an alias directly as follows:
+
+import * as bundled from './Utility.js' // (* means all) + ('bundled' is the alias)
+
+This can then be used as follows
+
+console.log(bundled.data) || consle.log(bundled.clean(1))

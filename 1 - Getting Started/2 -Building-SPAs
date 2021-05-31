@@ -1,0 +1,10 @@
+Building Single Paged Applications (SPAs) with React
+
+When working with react we build "Single Paged Applications"
+
+You can have a widget based approach to react for a multi-page application (Where pages are still rendered and served by a backend)
+
+It is more common to control an entire frontend with react - i.e movement between pages, interactions etc. 
+It will look like the frontend is making a request to a new page when switching page, but with react - the server ONLY SENDS ONE HTML PAGE - after this React controls the UI.
+
+The advantage to this is that it leads to a smoother UI and better User Experience

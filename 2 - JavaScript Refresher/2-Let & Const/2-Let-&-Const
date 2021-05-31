@@ -1,0 +1,6 @@
+Let and Const
+
+let => Similar to Var can be redefined
+const => Cannot Can be redefined
+
+Const stops us making silly bugs with global variables
