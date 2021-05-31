@@ -1,0 +1,42 @@
+Reference aqnd Primitive Types
+
+Reference and Primitive types are diferent types in data 
+
+// Primitive Types
+
+Examples of primitive types include numbers, booleans and Strings
+
+const number = 1; 
+const num2 = number;
+
+The above example is an example of primitive stypes, whenever you store the value of a variable in another variable it makes a direct copy of that value thus can be manipulated accordingly
+
+Arrays and objects are what is known as reference types. Arrays and objects are stored in memory and their subsequent variable names are just pointers to where that information is stored 
+
+This means that when an array or object is copied by its variable name this is simply a pointer to the first array. For example:
+
+const object = {
+  key: 'value'
+}
+
+newObject = object
+object.key = 'New Value'
+console.log(newObject.key) // output: 'New Value'
+
+Note how the output for newObject would change from 'value' to 'New Value'. As stated above, this is because of the way an object or an array works in memory -- It is a reference type
+setting newObject = object means that it has simply added another pointer to the information in memory thus if you changed the original value of the object (as we did to 'New Value'), the newObject value would change also. this can lead to errors if you change a reference type by accident
+
+To do this we would need to use the spread operator as follows
+
+const object = {
+  key: 'value'
+}
+
+newObject = {
+  ...object,
+}
+
+object.key = 'New Value'
+console.log(newObject.key) // output: 'value'
+
+This output occurs because the spread operator copies the original object into the new object rather than referencing the object in memory.

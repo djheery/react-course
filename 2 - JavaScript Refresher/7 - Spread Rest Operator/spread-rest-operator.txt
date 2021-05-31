@@ -1,0 +1,39 @@
+The Spread & Rest Operators
+
+defined as '...'
+
+// Spread Operator
+Spread operator is used to split up Array elements or object properties
+
+// Spread Operator Example
+
+const oldArray = [ 3, 4, 5]
+const oldObject = {oldProp: 7}
+const newArray = [...oldArray, 1, 2] // newArray will contain the values of the old array, example output would be = [3, 4, 5, 1, 2]
+const newObject = {...oldObject, newProp: 5} newObject will contain the values of the old array, example output would be = {oldProp: 7, newProp: 5}
+
+// Rest Operator
+Used to merge a list of function arguments into an array, this allows us to use Array methods on the arguments themselves
+
+// Rest Operator Example
+const rest = (...args) => args.sort()
+
+rest(1, 7, 5, 2, 3)
+
+The procedural operation of the rest operator in this context would be of follows:
+
+const rest  = ([1, 7, 5, 2, 3]) // turn the arguments provided into an array
+const rest = ([1, 7, 5, 2, 3]) => [1, 7, 5, 2, 3].sort()
+output: [1, 2, 3, 5, 7]
+
+// Sumamry
+
+- Spread is used to use other arrays/ objects and input them into a new Array/Object e.g [...Arr, 5, 6] || {...Obj, key: value}
+- Rest is used on methods to turn their arguments to arrays allowing the developer to manipulate the args with array methods e.g myFunc = (...args) => {some function}
+- the both use a prepended '...' e.g newArr = [...oldArr, 1, 2] || myFunc = (...args) => {FOO BAR}
+- the Context they are written in defines whether they are spread or rest
+
+
+
+
+

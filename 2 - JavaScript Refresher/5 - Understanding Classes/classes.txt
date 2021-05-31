@@ -1,0 +1,25 @@
+Classes 
+
+Classes are blueprints for objects,
+
+A class can have both properties (key/ value) and methods (funtions)
+
+Classes are a more convenient way of creating constructor functions
+Classes allow inheritance
+
+Examples
+
+//Property
+class Person {
+  name = "max" // key - value
+  call = () => console.log(name) // method 
+}
+
+// Usage 
+const myPerson = new Person()
+myPerson.call() 
+// .call() is a method only available to that class see above
+
+//Inheritance
+class Person extends Master 
+// this syntax allows the class to inherit all the properties of another class whilst building upon it e.g this specific example would make Person inherit all methods of a seperate "Master" class -- similar to prototypes

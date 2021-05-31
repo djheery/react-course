@@ -1,0 +1,21 @@
+Destructuring
+
+Destructuring allows you to extract array elements and store them in variables
+This may seem like the spread operator but it is not
+Where spread takes out all elements from an array or object Destructuring allows you to pull out single variables
+
+Array destructuring example
+
+[a, b] = ['Hello', 'Max'] // This asigns the variables a, b to the values of the array at the same index e.g a = [0] & 'Hello' = [0] thus a === 'Hello'
+console.log(a) // Output: Hello
+console.log(b) // Output: Max
+
+Object Destructuring example
+
+{name} = {name: 'Max', age: 28} // Where Array destructuring places variables based on the position of the element in the Array, object destructuring requires the key to pull the value
+console.log(name) // Output: 'Max' // name is defined in our destructured object thus the name is sucessfully pulled
+console.log(age) // Output: undefined // we did not pull out the age from our object thus it is undefined
+
+To reiterate using the object above, you could nout have the destructured object like this:
+{a} = {name: 'Max', age: 28} 
+console.log(a) // output: undefined -- this is because there is no 'a' key in the object!

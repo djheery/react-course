@@ -1,0 +1,23 @@
+Classes Properties and methods
+
+Properties are like Variables attached to classes and objects
+Methods are like functions attached to classes and objects
+
+The syntax has changed slightly for ease of use in ES7,
+Below I will include ES6 Syntax directly followed by ES7 syntax
+
+Properties - ES6
+constructor() {
+  this.myProperty = "value"
+}
+
+Properties - ES7
+myProperty = "value"
+
+Methods - ES6
+myMethod() {
+  console.log('This is an ES6 Method')
+}
+
+Methods - ES7
+myMethod = () => console.log('This is an ES7 Method')
