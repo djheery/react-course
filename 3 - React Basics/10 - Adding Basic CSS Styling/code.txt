@@ -1,3 +1,5 @@
+Lesson 34 - ExpenseItem.js
+-------------------------
 import "./ExpenseItem.css";
 
 function ExpenseItem() {
@@ -13,3 +15,14 @@ function ExpenseItem() {
 }
 
 export default ExpenseItem;
+
+----------------------
+
+Note the: 
+
+className
+import
+css file name
+brackets (return statenent)
+1 root element
+Why do you have to use className

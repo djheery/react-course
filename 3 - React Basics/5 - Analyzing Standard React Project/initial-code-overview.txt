@@ -1,0 +1,53 @@
+Render method
+
+The Render Method takes two arguments
+
+The 2nd Argument is a default JS DOM object
+
+Example from index.js:
+
+-----------------------------
+
+import ReactDOM from 'react-dom';
+
+import './index.css';
+import App from './App';
+
+ReactDOM.render(<App />, document.getElementById('root'));
+
+------------------------------
+
+important
+
+Wonder why there is no html file? Look in the public folder and note the singular html file. This is the single HTML file that is sent to the browser. 
+
+Remember that react acts as a kind of server when users are making requests for different pages or general interactions with the page.
+
+On this single file we import the finished react code and then it is the code that updates what we see on the screen.
+
+In the HTML file there is a div with the id of root, that div is generally what is being targeted and subsequently rendered
+
+What is the "<App />"
+
+This is a Syntax called JSX
+
+App is a component - thus the render method is saying Render the App component (in App.js) within the selected DOM element ('#root')
+
+App.js code: 
+
+----------------------------
+function App() {
+  return (
+    <div>
+      <h2>Let's get started!</h2>
+    </div>
+  );
+}
+
+export default App;
+----------------------------
+
+This returns HTML code within a JS file
+This is called JSX
+
+More in the next lecture.

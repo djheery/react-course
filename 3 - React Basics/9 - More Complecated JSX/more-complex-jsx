@@ -1,0 +1,35 @@
+JSX - Slightly more complex
+
+In this lecture we are manipulating the JSX in 'ExpenseItem.js' to make it more interesting
+
+We are adding the amount of the expense and the date.
+
+With JSX you MUST only have 1 root element per return statement (per JSX Snippit),
+For Example:
+
+return <div>Date</div><div><h2>Title</h2><div>Amount</div></div> or eaven 
+
+return <div> Date </div>
+       <div><h2>Title</h2>
+        <div>Time</div>
+       </div>
+
+The lecturer says why this is not possible in later lecture within this section.
+
+How do you work around this, you do this by wrapping the code into 1 root element.
+For Example: 
+
+ExpenseItem.js
+---------------
+  return (
+    <div>
+      <div>Date</div>
+      <div>
+        <h2>Title</h2>
+        <div>Amount</div>
+      </div>
+    </div>
+  );
+----------------
+
+Note how the divs are wrapped in parentheses - This signals react that this is all one component, wrap this round return statements when using JSX code.  

@@ -1,0 +1,59 @@
+Analyzing a Standard Project
+
+Example from index.js
+-----------------------------
+
+import ReactDOM from 'react-dom';
+
+import './index.css';
+import App from './App';
+
+ReactDOM.render(<App />, document.getElementById('root'));
+
+------------------------------
+
+In course 28 I downloaded the boiler plate template tyhe course leader provided for creating a react approach
+When running npx create-react-app [app-name] there are a load of files, the code defined is pre edited to thin it down and make it easier to work with.
+
+React is just javascript code if you break it down
+
+- index.js => this is the first code that is executed when the page is rendered/loaded. The course leader says that it is not exactly the code written but a transformed version of said code. 
+This is because react allows us to write easy to read code whilst it does all the heavy lifting imperative work behind the scenes. Npm start watches the code and transforms it.
+
+Note how the CSS is in the src file (react-complete-guide)
+
+This lecture is about being aware about this.
+
+REMEMBER
+
+index.js IS THE FIRST FILE TO LOAD.
+
+note the import ReactDOM from 'react-dom'
+
+this means we are importing ReactDOM from the react-dom library thus it is one of our dependencies in package.json
+
+In the package.json includes two seperate react dependencies - react and react-dom.
+Whilst technically these are two seperate packages you can think of them both encapsulated to make react.
+
+The import syntax makes a feature exposed by a library or file available within this file itself
+
+e.g 
+
+import ReactDOM from 'react-dom'
+
+ReactDOM.render(...)
+
+The method render() comes from the ReactDOM library thus the syntax ReactDOM.render()
+
+Importing JS files
+
+Notice how when importing JS files the .js extension is misisng e.getElementById
+
+import App from ./App
+
+Note
+
+import App from ./App.js
+
+
+

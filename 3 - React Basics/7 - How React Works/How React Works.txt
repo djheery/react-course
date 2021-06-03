@@ -1,0 +1,40 @@
+How React Works
+
+We update the App.js in this lesson and added a paragraph
+
+--------------------
+function App() {
+  return (
+    <div>
+      <h2>Let's get started!</h2>
+      <p>This is Also Visible</p>
+    </div>
+  );
+}
+
+export default App;
+
+--------------------
+
+This lesson is just a reiteration of what is happening with the react app and its declaritive nature
+
+e.g. 
+
+We create a component based UI using JavaScript and JSX => React does the lifiting and all of the imperative work behind the scenes => This is what is rendered on the screen.
+
+THis is a Declaritive approach.
+
+for Example
+
+In the above code we only had to input a p tag and react knows what to render.
+
+if we wrote this in vanilla JS it would be something to the accord of
+
+function App () {
+const para = document.createElement('p').textContent = This is also visible
+document.getElementById('#root').append(para);
+}
+
+This works but will get cumbersome. With react we just define the desired endstate andreact does all of that work behind the scenes.
+
+

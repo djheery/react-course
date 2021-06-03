@@ -1,0 +1,56 @@
+Building Custom Component Notes
+
+Components make up react! 
+
+We are starting with the Expense Item
+
+It is considered best practice to put a new component into a new file
+
+It is normal to for there to be dozens to hundreds of files in a React Component due to its component based nature.
+
+I created a new folder named components
+
+Note App.js does not move. This is because it is an important file. It has a high role within the application it will be our root component which our other components will be nested within.
+
+Ultimately with react wer build a Component tree (visualised below)
+
+      <App />
+    /        \
+<Header />   <Tasks />
+            /    |     \
+      <task/> <task/> <task/>
+
+Some Components take higher precedence than others, in this example App is the most impotant the header and Tasks share an equal secondary importants the each subsequent task is of the lowest level
+
+This helps us seperate our concerns and keep a clean code base.
+
+Big Applications can result in big component trees, where only the top component is directly concerned with rendering the code on screen.
+
+File Naming convensions in React
+
+The Comon naming convension in react is to capitalize each word with no space e.g 
+
+ExpenseItem.js => This is the new File I made 
+
+Other names do work this is just a convention to consider when naming files.
+
+A COMPONENT IS JUST A JAVASCRIPT FUNCTION!!!!!
+
+You create a custom component like a html element within the code
+For Example regarding our expense Item
+
+we import it then call it within the app folder as follows
+
+<ExpenseItem></ExpenseItem>
+
+The key diference to the built in HTML elements is that custom components MUSTTT start with an uppercase character. This allows react to detect that it is considered a custom component. This tells react that the component is custom made.
+Thus when naming on import or within a file: 
+
+import ExpenseItem from './components/ExpenseItem'
+||
+function ExpenseItem {...}
+export default ExpenseItem;
+
+Notice how the function name is the same as the file name. This is considered a best practice within a React Application. 
+
+Check the Code in the txt file to view what the code looked like at this point.

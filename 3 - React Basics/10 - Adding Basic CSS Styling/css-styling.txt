@@ -1,0 +1,22 @@
+CSS Styling
+
+You still use CSS as normal with a few minor tweaks.
+
+It is a best practice to include the components css file with the exact same name as the original JSX file.
+
+For Example: 
+Expenseitem.js => CSS File => ExpenseItem.css
+
+This is so that they appear directly next too eachother in the menu.
+
+// Classes
+
+To include a class within your JSX elements rather than use the keyword class='...', you must use the keyword: className='...'.
+
+This is because 'class' is a predetermined property selector in JavaScript
+
+// import
+
+To render the css styling of a component within react you have to import the css file - example
+
+import "./ExpenseItem.css", react will not do this automatically

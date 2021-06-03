@@ -1,0 +1,13 @@
+What is JSX
+
+Simply put it is HTML code placed within a JavaScript file
+
+JSX Stands for JavaScript XML
+
+HTML is XML apparently?
+
+The process behind the scenes is transforming JSX into regular HTML
+
+If you look at the source files within main.chunk.js and cmd-f to find the App,js code you will see what the source code actually looks like. (The code that runs in the browser)
+
+This is code we would not want to write this is why its great to use JSX and you will use it with react.
