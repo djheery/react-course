@@ -1,3 +1,14 @@
+ExpenseItem.js
+--------------
+function ExpenseItem() {
+  return <h2>Expense Item!</h2>;
+}
+
+export default ExpenseItem;
+--------------
+
+App.js
+--------------
 import ExpenseItem from "./components/ExpenseItem";
 
 function App() {
@@ -10,3 +21,4 @@ function App() {
 }
 
 export default App;
+--------------
