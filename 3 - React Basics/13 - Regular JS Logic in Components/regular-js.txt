@@ -1,0 +1,29 @@
+Regular JS Logic within React components
+
+Note: Props values can be hard coded 
+e.g <ExpenseItem title="Toilet Paper"/></ExpenseItem>
+This will be passed into our props param within the targeted component function.
+
+The main idea with props is to pass data into our component functions to produce dynamic reusable content.
+
+We are going to manipulate the look of the Date object by making it look like a calendar
+
+To do this we use the toLocaleString function which makes the date object recieved via the new Date() within the property more ledgable 
+
+toLocaleString() takes in two params 1st being the language/ region you want the date format to be and the second being an object with the options (find more in the MDN article on toLocaleString())
+
+rather than writing tit inline like this:
+<div>{props.date.toLocaleString('en-us', {month: long})}</div>
+
+it is better to write it as a constant then target it within the div
+
+const month = props.date.toLocaleString('en-us', {month: long})
+return(
+  <div>{month}</div>
+  )
+
+This keeps the JSX code more ledgeable and maintainable
+
+REMEMBER DATES ARE LIKE ARRAYS 0 Indexed
+i.e January = 0
+    December = 11

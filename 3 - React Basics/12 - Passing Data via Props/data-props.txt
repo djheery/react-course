@@ -1,0 +1,104 @@
+Passing Data via Props
+Lecture 36
+
+How do we make the code reuasable?!?!
+
+IT IS ALREADY 
+Copy and paste expenseItem component within App.js and you will see that when hot reloaded that the component has been reused! How exciting!!!!
+
+Its very easy to reuse a component you can use it as many time as you want,
+
+They are not yet reusable in a dynamic manner, this is because the data is hard coded into the component. We want reuseable components that generate their contained data dynamically. Of course this will not be the case with every single component but for the most part it will.
+
+When we write functions in vanilla JavaScript we make the functions reusable by adding parameters to the function thus the function has one use case but will generate different data depending on the data passed through the params.
+
+We can make our components reusable by adding parameters and using concept called Props
+
+Props
+-----
+
+Example:
+In you <App/> item you have a variable
+
+const lizJones = 'Doctor'
+
+then in your <Doctor/> component you have a list item you want your list item to display the "lizJones" var as so
+
+<li>{lizJones}</li>
+
+This cant be done as Components cant just use data stored in other components. Instead we can utilize a concept called props. 
+
+We can add data using a custom attribute then inside this component we can then get access to these attributes that have been set on our custom components.
+
+With React our own custom components can have attributes these are called props (short for properties dumb shit)
+
+you can set properties of your own custom components.
+
+To do this we created an object within the App.js file and passed in hard coded data (for now) that correlates to expense items as listed below: 
+
+  const expenses = [
+    {
+      id: "e1",
+      title: "Car Insurance",
+      amount: 294.67,
+      date: new Date(2021, 6, 1),
+    },
+    {
+      id: "e2",
+      title: "Fender Custom Shop 1960",
+      amount: 3020.67,
+      date: new Date(2021, 6, 2),
+    },
+    {
+      id: "e3",
+      title: "Chelsea Top",
+      amount: 70,
+      date: new Date(2021, 6, 2),
+    },
+    {
+      id: "e4",
+      title: "Solicitors",
+      amount: 980.99,
+      date: new Date(2021, 6, 2),
+    },
+  ];
+
+Then we passed in these attribues from the expense object array into each individual expense item:
+
+      <ExpenseItem
+        title={expenses[0].title}
+        amount={expenses[0].amount}
+        date={expenses[0].date}
+      ></ExpenseItem>
+
+The data from these objects should not be stored inisde the ExpenseItem.js JSX function but outside. This is what makes up the props (properties).
+
+The attributes (such as title) are titled by us and can be anything, it is best practice for them to correlate to the object you are targeting
+
+Inside of ExpenseItem.js you now need to access these properties to dynamically generate the component.
+
+To do this you add a parameter to the component function, this parameter is entitled props. React ensures that the correct properties (in this case the expense object array) are passed into the function. I do not know how it does this but assume it is to do with the custom component of <ExpenseItem/> within the App.js file. It will look inside this to see the dependent attributes (in this case "const expenses = [{...}]") and pass this into the ExpenseItem Function within ExpenseItem.js.
+This looks like this: 
+
+function ExpenseItem(props) {...}
+
+"The one parameter passed in will be an object with all the necassary values from the property dependancy hence the name props"
+
+you can name the parse any name into the param but is a best practice to name the parameter props so to make the code maintainable. 
+
+We recieve key: value pairs from the props param.
+
+the targeted name within ExpenseItem.js has to be the key for the value you are wanting to target. e.g 
+<h2>{props.title}</h2>
+
+This is the same as writing expense[i].title and produce the value
+
+Note this is what the Date key looks like with toISOString()
+
+<div>{props.date.toISOString()}</div>
+
+You want to use prop names that make sense e.g amount === good naming convention, someNumber === bad naming convention :(
+
+You can make components reusable by using props, it is extremely important you that you understand this concept as you will be using this all of the time within React.
+
+See code in code.txt for the updated code

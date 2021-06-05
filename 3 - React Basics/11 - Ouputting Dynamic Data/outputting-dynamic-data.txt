@@ -1,0 +1,41 @@
+Outputting Dynamic Data & working with Expressions in JSX 
+Lecture 35
+
+Think about 1 problem with ExpenseItem
+
+We will probably not have just one expense, and definitley not one that has hard coded values thus we need to deal with adding an unlimited amount of expenses with custom data within them
+
+This goes back to the reusability of React, we want to define a component once and then be able to reuse said component as many times as is nesacarry 
+e.g we want multiple expenses with different data utilising the same code base as the rest of the expenses.
+
+Split big chunks of code into smaller chunks!
+
+Another problem we have to solve first
+
+Sort the hard coded data
+We need dynamic code - Data, Time and Amount
+
+Dynamic means -- we recieve the inputs in some part of the web app/ code then output those inputs dynamically as you would do with normal JavaScript files.
+
+We don't understand how to recieve this dynamic data from the user thus we will fake it for the time being by adding more than just HTML to the component
+
+REMEMBER A JSX component is just a javascript function.
+
+Components are the combination of predominantly HTML and JS with some JS
+We add the JavaScript before we return from the function.
+
+For now we are creating constants and hard coding the data into them => this is in order to simulate how we would write JSX code with variables inside. (Review code.txt)
+
+To input dynamic data you can replace the hard coded data with "{}"  -- this is exactly like JSON-T for squarespace
+
+within the {} => you can execute basic JavaScript expressions such as calculations (1+1) and add variables
+
+With the date you cannot do this as new Date() returns an object thus the lecturer uses expenseDate.toISOString() which out puts strangely 
+
+toISOString => this function is a prototype of the Date Object and returns a 24 - 27 character long string relevant to the given date object
+
+An example of what toISOString Returns = 2011-10-05T14:48:00.000Z
+
+It represents the date in the ISO 8601 format => I do not understand this on Wikipedia it states that it is an international standard covering the exhange of date and time related data. And represents formats of dates in the Gregoriana Calendar?
+
+Review code in code.txt
