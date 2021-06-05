@@ -1,0 +1,49 @@
+ExpenseItem.js
+-----------------------------
+
+import "./ExpenseItem.css";
+import ExpenseItemDate from "./ExpenseItemDate";
+
+function ExpenseItem(props) {
+  return (
+    <div className="expense-item">
+      <ExpenseItemDate date={props.date} />
+      <div className="expense-item__description">
+        <h2>{props.title}</h2>
+        <div className="expense-item__price">${props.amount}</div>
+      </div>
+    </div>
+  );
+}
+
+export default ExpenseItem;
+
+-----------------------------
+
+ExpenseItemDate.js
+
+-----------------------------
+
+import "./ExpenseItemDate.css";
+
+function ExpenseItemDate(props) {
+  const month = props.date.toLocaleString("en-us", { month: "long" });
+  const day = props.date.toLocaleString("en-us", { day: "2-digit" });
+  const year = props.date.getFullYear();
+
+  return (
+    <div className="expense-date">
+      <div className="expense-date__month">{month}</div>
+      <div className="expense-date__day">{day}</div>
+      <div className="expense-date__year">{year}</div>
+    </div>
+  );
+}
+
+export default ExpenseItemDate;
+
+
+-----------------------------
+
+Notes : 
+  - Refer to the coresponding .txt file for notes - main things to bare in mind are the way in which props can be passed through root components to their sub components & that custom component tags can be self closing i.e <ExpenseItemDate />

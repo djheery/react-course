@@ -1,0 +1,66 @@
+Splitting Components into Multiple Components
+
+As components get bigger, it is a best practice to split these components into smaller building blocks and combining these components to make a singular component.
+
+This keeps a components code code base per component smaller, mananagable and maintainable.
+
+We are going to experiment by moving the date item out to a seperate component. Although this component 
+
+The lecturer statess that if a small section within a component has extra styling, that it is his preference to split the component into two. In this case we a splitting the calendar part of the date out into a smaller component
+
+Remember to be descriptive with file names - Reminder on best practices
+- Files should start with a capital letter and have a capital on every new word e.g ExpenseDate.js
+- Relative CSS files should have the same name as the js file (with the .css extention obviously)
+- File names should be descriptive and Identify exactly what the file is for (ExpenseItemDate.js => Signifies the file is for the Expense Item Date Component)
+
+Splitting components - Practical Application
+
+In ExpenseItemDate.js We created a seperate date JSX Component for the date object, to do this 
+
+We:
+  - Moved the date vars out of the ExpenseItem.js file into the new ExpenseItemDate.js file.
+  - Constructed the mini JSX component as it was in the EspenseItem.js file
+  - Added the css classes provided by the lecturer
+  - Added the import and export statements for ExpenseItemDate.css and the ExpenseItemDate function retrospectivley
+  - Passed the props param into the ExpenseItemDate function so they can be used within the vars if month, date & year
+  - Added className to divs relevant for styling
+  - Moved to the ExpenseItem.js file and updated it to pass the date prop through to ExpenseItemDate. This is how props are passed to sub components of a root component
+    - <ExpenseItemDate date={props.date} />
+    - Note the date attribute has been added and by passing it props.date it will pass this prop through to the compnenent referenced (REMEMBER THE DATE ATTRIBUTE (date="...") is a custom named attribute and does not refer to the JS Date object - it is fairly easy to get confused by this custom made attribute) 
+    - Prop inheritance seems to be a big part of react
+    - We removed the closing tags from the referenced components withing <App /> and <ExpenseItem/> files as componenets are allowed to be self closing.
+
+Passing props to other props
+
+Though written about it above it is good for me to write about it again to get my head as straight on the subject
+
+To pass a prop from one item to another it is done via custom attributes.
+
+In <App/> we include the <ExpenseItem/> component
+
+In this component we pass it attributes like so: 
+
+  <ExpenseItem
+    title={expenses[0].title}
+    amount={expenses[0].amount}
+    date={expenses[0].date}
+  />
+
+This tells react that we want to pass these properties throught to the Relevant <ExpenseItem/> component
+
+Now in ExpenseItem.js we pass the (props) argument into the function (This can be named anything but is usual to name them props)
+React knows that the props this function wants are from the attributes given in App.JS so it passes them through accordingly 
+
+Now we create our sub component and want to pass it the date property provided by App.js. How do we do this? Simple target the created component in this case <ExpenseItemDate/> and add a custom attribute (in this case named date) and pass the file the relevant prop 1st provided by <App/>
+
+<ExpenseItemDate date={props.date} />
+
+Hey presto, the date attibute gets passed to ExpenseItemDate() so it can use it as a prop within the function allowing: 
+
+const month = props.date.toLocaleString("en-us", { month: "long" });
+
+Very simple concept, Im sure there is more to it but for now I feel as if I have a basic understanding
+
+Check code.txt for the relevant updates to both ExpenseItem.js and ExpenseItemDate.js, I have ommited the App.js file as I do not feel removing the closing tags within the Return statement is worth it.
+
+The main reason for doing this is to split components up to keep the code bases small and maintainable
