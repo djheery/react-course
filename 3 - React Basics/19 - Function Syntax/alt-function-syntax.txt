@@ -1,0 +1,6 @@
+We just changed all the functions into Arrow functions
+
+Nothing too interesting 
+
+MODULE DONE.
+

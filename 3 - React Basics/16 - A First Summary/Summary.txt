@@ -1,0 +1,25 @@
+First Summary
+Lecture 39
+
+React is a Component Driven USer Interface
+
+Component Driven UI Allows us to build reusable and maintainable web apps.
+
+We looked at 
+  - React Core Syntax
+  - Working With Components
+  - Sharing Data
+  - JSX (JavaScript XML)
+  - Builidng Our First components
+  - props
+  - Composition (Combiining components to build the UI)
+  - Naming Conventions
+  - {props.children}
+  - basic CSS Styling
+  - Adding JS Logic to components (Basic Starting with toLocaleString() and pulling it out into a local variable to declare {month}, {toLocaleString} and {year})
+  - toLocaleString(params = 'Area', 'options')
+  - How to implement custom components
+  - create-react-app
+  - outputting dynamic data (although still hard coded via an expense object for now for now)
+
+When you Open the console you only see Divs, H2 and general HTML elements. None of our custom components. This is because react has transpiled or code so that the browser can understand.

@@ -1,0 +1,56 @@
+A Closer Look at JSX
+Lecture 40
+
+What does the JSX do behind the scenes
+
+We know that when looking at the dev tools that we cannot see our custom components in the elements section. Then when we look in the source section we see fairly complex code regarding how our JSX is translated into regular JavaScript. It may seem more complicated than how we would write it in vanilla JS ourselves. This is just part of how React needs to compile to ensure there are no errors.
+
+
+In package.json there are two dependencies that may stick out "react, react-dom"
+
+In App.js we only see ReactDom imported from react-dom
+In our set up this is generally fine but in other setups developers may decide to import react into the files also. This is because in older react projects you needed to:
+
+import React from 'react'  
+
+In all of our component files, => ALL FILES WE USED JSX.
+
+This can now be ommited but its worth baring in mind when looking at other peoples React projects.
+
+We needed the import in the past because the JSX code is just syntactic sugar and would be dependent on having React imported into the component so we can use JSX.
+
+Now this happens automatically within React.
+
+We will write out what the JSX is doing to allow a visual demonstration.
+
+<App.js />
+-------------------------
+
+import React from 'react'
+
+const App = () => {
+
+  ... other code...
+
+return React.createElement('
+  div', 
+  {}, 
+  React.createElement('h2', {}, "Let\'s get started!"), 
+  React.createElement(Expenses, { item: expenses })
+  );
+}
+
+-------------------------
+
+So lets break down the above code:
+  - First we are importing React from 'react', this is so that the file can use React.createElement() and JSX
+  - React.createElement() is what is really happening under the hood when it comes to JSX, every time an element is made react is calling this function
+    - React.createElement() takes in 2/ 3+ arguments they are as follows:
+      - (element being created, properties object with key and value(if none use {}), content => beyond this point it is just the content within)
+    - Note to build a container you nest elements in the third param of React.createElement.
+    - Thank the lord for JSX 
+    - Lecturer has decided to import React into every component file to emphasize the fact that the React Dependency is being used, modern set ups are the only reason why we can omit this import, as it is already being imported behind the scenes
+
+This clears up why you cannot have JSX code without a wrapping element. To emphasize React cant call React.createElement(..., ..., ...) React.createElement(..., ..., ...), in a return statement the call must be embeded within the 3rd param which  creates nesting.
+
+Very Interesting!!!

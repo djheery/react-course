@@ -1,0 +1,62 @@
+The concept of Composition - Children props
+
+React is all about components. Through the course we will learn more about the advanced functionality of these components and how to use props.
+
+Components are custom elements where you combine JSX, CSS and custom JavaScript.
+
+The process of building a UI via the combination of smaller builiding blocks (components) is called "composition"
+
+Interesting aspect of composition
+
+What if we want to build a component which just serves as a shell around any other type of content? (Does he mean container - Who knows)
+
+At The time of this lecture we had highly specific components - The expense Date compnent was all about outputting a date => the expense Item component (Although did not deal with the date) contained all the relevent info for each expenseItem. => Expenses deals with passing the props to the ExpenseItem whilst creating a container for them
+
+You will always have a alot of these very specific components. 
+
+All of the components are configured through props
+
+Sometimes you dont want to have a component that deals with props but insead passes content between the opening and closing tags of the component such as <Component >Hey there Sexy Boy</ Component>
+
+Here is an example  with a fairly simple usecase - 
+
+In the Expense.js & ExpenseItem.js file you have an outer div on each that share the style of their border radius and boxShadow. It would make more sense to contain this within one class name.
+
+We could add a core.css file and add these styles under a '.card' class; however, for the purpose on demonstration we do it slightly differently. We create a seperate component called Card() in a Card.js / Card.css file with the intention of buiding this container with shared styles.
+
+First we declare the function and pass in the props param. We are not using the props param to pass properties to this component, instead we are calling on an inbuilt React prop called 'children'
+
+props.children tells react that the div is a container of some type and to allow react to use it in such a manner. Without this, if we were to wrap expenseItem in a Card component it would not work and would produce an error.
+
+This is an example:
+
+const Card() = (props) => {
+  return <div className=".card">{props.children}</div>
+}
+
+This allows up to wrap our custom components like this (so long as we have imported this component)
+
+    <Card className="expense-item">
+      <ExpenseItemDate date={props.date} />
+      <div className="expense-item__description">
+        <h2>{props.title}</h2>
+        <div className="expense-item__price">${props.amount}</div>
+      </div>
+    </Card>
+
+Note the Card Wrapping component
+
+We are not yet done however, as within the example above the className attribute will not be ignored. This will make the display off
+
+We can solve this simply as written below: 
+
+const Card = (props) => {
+  const classes = `.card ${props.className}`
+  return <div className={classes}>{props.children}</div>
+}
+
+Note how the attribute given to the className within the return statememnt is "classes". The classes constant is telling react to use the .card class + any className listed within the component itself -- in the prior example "expense-item"
+
+The act of compisition is when we make / combine components to build our UI
+
+props.children is an extremely important part of React as it allows us to build wrapper/container components.

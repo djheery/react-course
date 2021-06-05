@@ -1,0 +1,18 @@
+Organizing Component files
+Lecture 41
+
+As your project grows you want to start ordering you components folder into sub folders to keep the workspace tidy.
+
+We can already start with this 
+
+We have general UI components: Card
+
+and Feature specific components: Expenses, ExpenseItem, ExpenseItemDate
+
+We will create an expenses subfolder and a UI sub folder and input the appropriate files.
+
+MAKE SURE TO UPDATE THE IMPORTS
+
+
+
+
