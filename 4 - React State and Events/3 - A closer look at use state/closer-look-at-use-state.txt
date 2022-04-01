@@ -1,0 +1,11 @@
+Closer look at use state
+
+Use state registers some state for the component instance that is being called 
+  - For example, every ExpenseItem component in Expenses.js has its own individual state separate from the other ExpenseItems. This means that the useState declared in the component file refers to each separate item. 
+  - Use state i declared 4 times, and every separate component has a separate state. 
+    - This is managed independently by react. 
+      - On a per component instance basis. 
+
+Why use const
+  - When we refer to useState we tell react that it should manage some state for us.
+  - This means that using const is fine, as it will always refer to whatever title react returns to us. 

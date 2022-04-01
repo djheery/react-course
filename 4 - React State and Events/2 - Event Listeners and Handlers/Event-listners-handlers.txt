@@ -1,0 +1,138 @@
+===================
+Listening to Events
+===================
+
+These notes cover lecture 47 - 49
+
+We covered handling events.
+We did this by implementing a button html element on the ExpenseItem.js file. 
+
+Items such have buttons have events associated with them, thus you can use these types of events and pass them in a function declared within the file: 
+
+For example: 
+
+const ExpenseItem = (props) => {
+  return (
+    .....
+      <button onClick={myFunction}>The Button</button>
+    .....
+  )
+}
+
+Note: it is also possible to add Anonymous functions to HTML elements
+
+<button onClick={() => console.log("Clicked")}>........
+
+It is considered a better practice however to declare functions within the objects creation for example: 
+
+const ExpenseItem = (props) => {
+
+  const myFunc = () => console.log("Clicked")
+  
+  return (
+    .....
+      <button onClick={myFunc}>The Button</button>
+    .....
+  )
+}
+
+Notice how there are no parentheses on the function call within the button 
+  - This is because if parentheses were added, when the button is rendered the function would be called immediately 
+    - By passing a pointer to the function instead this will be handled when a click event occurs. 
+
+
+Say we wanted to update the title of the the element:
+
+const ExpenseItem = (props) => {
+  
+  let title = props.title
+
+  const myFunc = () => {
+    title = "updated" 
+  }
+
+  return (
+    <Card className="expenseItem">
+      <ExpenseItemDate date={props.date} />
+         <div className="expense-item__description">
+        <h2>{title}</h2>
+        <div className="expense-item__price">{props.amount}</div>
+      </div>
+      <button onClick={myFunc}>Change the Title</button>
+    </Card>
+  )
+
+}
+
+One may think that this would work, however, it does not. 
+This is because once the full rendering of all react components is done, they are never rerendered. 
+
+To force rerendering of components you can use something called "useState"
+
+You import this by naming some of the importations when you are importing react: 
+
+import React { useState } from "react"
+
+useState is known as a React hook. There are other hooks that will be covered throught the course.
+
+To call useState you pass it into the item you want to update like so: 
+
+const ExpenseItem = (props) => {
+  
+  useState()
+
+  let title = props.title
+
+  const myFunc = () => {
+    title = "updated" 
+  }
+
+  return (
+    <Card className="expenseItem">
+      <ExpenseItemDate date={props.date} />
+         <div className="expense-item__description">
+        <h2>{title}</h2>
+        <div className="expense-item__price">{props.amount}</div>
+      </div>
+      <button onClick={myFunc}>Change the Title</button>
+    </Card>
+  )
+
+}
+
+However, this is not entirely correct. Use state returns exactly 2 items: 
+  - The item being passed in that will change. 
+  - An Anonymous function to change the state of this item. 
+
+To gain access to these items we use array destucturing so we can call upon them within our myFunc() method. 
+
+By using useState, we will force react to rerender this component when a specific event occurs. In this case a click event: 
+
+const ExpenseItem = (props) => {
+  
+  const [title, setTitle] = useState(props.title) // The prop we want to change. 
+
+  const myFunc = () => {
+    if(title == props.title)
+      setTitle("Updated");
+    else 
+      setTitle(props.title)
+  }
+
+  return (
+    <Card className="expenseItem">
+      <ExpenseItemDate date={props.date} />
+         <div className="expense-item__description">
+        <h2>{title}</h2>
+        <div className="expense-item__price">{props.amount}</div>
+      </div>
+      <button onClick={myFunc}>Change the Title</button>
+    </Card>
+  )
+
+}
+
+Notice how we pass {title} into the h2 element on intial render also. This is able to be done as it is still refering to props.title when useState is initially declared.
+
+When we rerender only the component that is using useState will be rerendered rather than the whole page. 
+

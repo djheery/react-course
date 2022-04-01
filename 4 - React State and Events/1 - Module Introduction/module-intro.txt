@@ -1,0 +1,16 @@
+===================================
+Handling User interaction and State
+===================================
+
+React follows a declarative approach by creating reusable objects
+The defining the desired target state and let React figure out the actual JavaScript Dom instructions 
+
+Currently we only have static content
+We want to create dynamic content. 
+
+In this module we will look at: 
+
+- Handling Events 
+- Updating the UI & working with "State"
+- Closer look at Components and State.
+

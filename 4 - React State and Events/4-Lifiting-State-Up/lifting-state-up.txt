@@ -1,0 +1,33 @@
+================
+Lifting State Up
+================
+
+What is lifting state up?
+
+Consider this component tree
+
+<App /> 
+  ||
+  ||
+  =======> <Expenses />
+  ||
+  ||
+  =======> <NewExpense />
+
+An app component renders both the Expenses component and the NewExpense component
+
+The NewExpense component, 
+  - Data/ State is generated here
+
+The Expenses component 
+  - Data/ State is needed here 
+
+We would like to hand the data from NewExpense to Expenses 
+  - We cannot do this directly as in react you can only parents and their children can communicate with each other
+
+To share between the two we must share the data to the closest relative which both components share. 
+  - In this case the App component
+  - This component can be used to store the state of both of the components
+    - Thus the NewExpense component will lift it's own state up and pass it to the App component so that the <App /> component can pass the new state down to the Expenses component via props enabling it to update itself.
+
+This can be seen in the NewExpense and ExpenseForm components as they lift their state up.
