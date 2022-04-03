@@ -1,0 +1,57 @@
+============================
+Effects, Reducers, & context
+============================
+
+These features are a little more advanced
+  - These features help create more complex react applications 
+
+Module Content
+  - Working with (Side) Effects
+  - Managing more Complex State with Reducers 
+  - Managing App-wide or Component-Wide State with Context
+
+=================
+What is An Effect
+=================
+
+Effects are also known as Side Effects 
+
+Main Job of React: 
+  - Render UI and React to User Input
+  - Evaluate & Render JSX
+    - Manage state and props
+    - React to User Events & Input 
+    - Re-evaluate component upon State & prop changes 
+
+All of this comes with the base package of React 
+
+============
+Side Effects
+============
+
+Anything else, 
+  - Sending HTTP requests
+  - Store Data in Browser Storage 
+  - Set & Manage Timers
+  - etc 
+
+Tasks not related to bringing something onto the screen 
+  - React is not related to tasks that are not used to render components in the UI 
+
+These tasks must happen outside of the normal component evaluation and render cycle
+  - Especially since they might block/delay rendering 
+    - This could happen with HTTP requests.
+
+There is a special react hook that is used for operations like this 
+  - The useEffect() hook
+
+The useEffect hook takes 2 parameters 
+
+useEffect(() => {...}, [dependencies])
+  - The first argument
+    - An anonymous method that should be executed after every component evaluation 
+      - If the specified dependencies are changed.
+  - The second argument 
+    - A list of dependencies that should be monitored for change.
+    - Whenever a dependency changes the first argument method will re run. 
+  

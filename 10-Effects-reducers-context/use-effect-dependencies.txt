@@ -1,0 +1,46 @@
+=======================
+Use Effect Dependencies
+=======================
+
+When using use effect you should pass in the dependencies,
+  - The dependencies dictate when the method associated with use effect should be called. 
+    - For example, if you have a dependency of emailInput,
+      - The method will only be called when the emailInput state changes. 
+
+This could look something like this: 
+
+==============================================================
+
+const [emailInput, changeEmailInput] = useState(emailInput);
+
+useEffect(() => {
+  if(!emailInput.contains("@"))
+    changeEmailInput('');
+  
+}, [emailInput])
+
+const setEmailInput(e) => changeEmailInput(e.target.value);
+
+==============================================================
+
+In the example above, imagine that the setEmailInput() method is called onKeyPress{setEmailInput}
+  - Every time it updates the emailInput state for react. 
+  - This will then register a change of input which will invoke the useEffect hook as emailInput is a dependency of this hook
+    - In this circumstance we have some simple validation code within the useEffect hook 
+      - Thus as a "Side Effect" of the input changing this code is automatically called. 
+      - This would allow us to run more complex validation of all the inputs, leading to less code duplication in the circumstance there are more inputs to check.
+  
+You should add most things to the useEffect dependency collection. 
+There are a few exceptions however
+  - You don't need to add state updating functions 
+    - such as changeEmailInput in the example above.
+    - React guarantees that those methods will never change, hence you don't need to add them as dependencies
+  - You don't need to add built-in APIs or methods like fetch() or localStorage()
+    - They also never change. 
+  - You don't need to add variables or methods you may have defined OUTSIDE of your components
+    - I.e if you made a new helper method in a separate file.
+      - These functions or variables are not created inside of a component function and hence changing them won't affect your components
+        - Component's won't be re-evaluated if such variables or methods change and vice-versa
+    
+Basically you should only add the fields that could change because of your component, or paraent component being rerendered. 
+  - That is why variables or state defined in component functions, props, or methods defined in component methods have to be added as dependencies

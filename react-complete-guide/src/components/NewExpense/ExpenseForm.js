@@ -45,7 +45,7 @@ const ExpenseForm = (props) => {
 
     const expenseData = {
       title: enteredTitle,
-      amount: enteredAmount,
+      amount: +enteredAmount,
       date: new Date(enteredDate)
     }
 
@@ -55,14 +55,6 @@ const ExpenseForm = (props) => {
     setEnteredAmount('');
     setEnteredDate('2022-01-01');
   }
-
-  const showButton = () => {
-    <div className="new-expense__actions">
-      button
-    </div>
-  }
-
-
 
   return (
     <form onSubmit={submitHandler}>
@@ -81,7 +73,8 @@ const ExpenseForm = (props) => {
         </div>
       </div>
       <div className="new-expense__actions">
-        <button type="submit" onSubmit={showButton}>Add Expense</button>
+        <button type="button" onClick={props.onCancel}>Stop Adding Expense</button>
+        <button type="submit" onSubmit={submitHandler}>Add Expense</button>
       </div>
     </form>
   )

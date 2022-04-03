@@ -1,0 +1,32 @@
+Debugging 
+
+Errors will always be a part of development thus you must know how to debug them 
+
+In this module we will focus on debugging errors in react
+
+We will:
+  - Understand React Error Messages
+  - Explore Debugging & Analyzing React Apps
+  - Explore Using react Dev Tools 
+
+JSX code must be enclosed within one Parent Div
+  - This is due to React running React.createElement(
+
+    ......Elements
+  )
+
+  under the hood. Thus it is containing all the elements with this code.
+
+  You can debug by setting breakpoints using the browser src/debugger section of the dev console. 
+    - Simply find the file that you want to set a breakpoint then click the line you want to set the breakpoint on 
+      - You can view the information received bby the method you are debugging by hovering over the variables within the method. 
+    - Never knew you could do this 
+    - When the browser reaches the point you have marked as a breakpoint on execution of the code, the code will stop and will allow you insight into what is going on 
+
+  You can also use React developer tools extension 
+    - You get a new section on the dev tools saying components and profile 
+      - This allows you to see the props that are passed to various components 
+      - Which components are responsible for rendering it in order of which is most closely responsible for rendering the components 
+      - You can Search for components 
+      -You see hooks that are being used.
+        - Such as useState()

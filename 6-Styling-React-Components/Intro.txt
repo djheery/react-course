@@ -1,0 +1,10 @@
+========================
+Styling React Components 
+========================
+
+In this module we will look at: 
+  - Conditional and Dynamic styling 
+  - Styled Components 
+    - Pre Styled
+  - CSS Modules
+

@@ -1,0 +1,91 @@
+==========================================================
+Diving Deeper: Working with Fragments, Portals, and "Refs"
+==========================================================
+
+In this section I'm editing the react-practice-project
+
+We will learn about 
+  - JSX Limitations 
+  - Fragments
+  - Portals
+  - Refs
+
+JSX Limitations 
+
+JSX limitations 
+  - Adjacent root level elements we will get an error 
+    - This means two JSX elements together not wrapped by a parent element  
+  - You cannot have more than one root JSX element 
+    - You cannot return more than one element 
+      - This is why it will return an error 
+  - Think about it like an array, you can only return one array, but that array can return multiple values, 
+    - The root JSX Element can contain many children 
+  - JSX turns into React.createElement('h2', {}, 'Hi There') // Example of how that is structured.
+  - You can get around this by wrapping elements in a div
+  - You could return an array of the elements if you wanted, this comes with an issue though 
+    - When you are working with an array of elements, React wants a key 
+      - You could hard code the key, but this verbose, that is why using a wrapping div is more generally used. 
+  - With wrapping div's, you can end up with "div soup" 
+    - Many unnecessary div's that are being served
+    - Not a good practice, rendering too many HTML components 
+  
+General solution 
+  - Make a wrapper component,
+    - In that component just return props.children 
+
+const Wrapper = (props) => props.children
+
+This will get rid of the unnecessary div's. 
+  - You can see this in App.js of react-practice-project
+  - It comes with react 
+    - <React.Fragment> is what you would use for wrappers 
+      - You can use <>...</> if your project is set up.
+
+=============
+React Portals
+=============
+
+React portals are used to render components that are conditional in other areas of the dom
+  - For example, the Error Modal in practice project shouldn't be contained within the Form div. 
+    - This is because it is conditional and could cause issues for a screen reader on use as a screen reader would think that this 
+    is part of the usual HTML of the web page
+
+Portals need 2 things 
+  - You need a place that you want to port that component to.
+  - Then you need to let the component know that it should be placed there.
+
+To do this it is common you go into the HTML file and create divs with unique id's dictating where you want to place these components
+
+To add components to these divs you import ReactDOM from react-dom 
+  - Then use ReactDOM.createPortal(<Component>, document.getElementById("div to host in"))
+  - You can see this in UserFromModal. 
+
+====
+Refs
+====
+
+Refs allow us to set a connection between HTMl elements and JavaScript code
+You create a ref by using another react hook
+  - useRef()
+
+You can refs, refer to the current state of a DOM element, and within them you have access to the properties of the Dom element 
+
+const nameInputRef = useRef();
+<Component ref={nameInputRef} />
+nameInputRef.current.value
+
+The code above will allow you get the current value of the name input field. 
+
+Generally you should not use refs to manipulate the DOM, however, in this circumstance, we used it to set the fields to blank after a successful submission. 
+
+The reason this is useful when dealing with inputs is that we do not have to use the onChange={method} event handler on the input, changing the state every time someone logs a key press.
+ 
+This is not the only thing that refs can be used for.
+
+Uncontrolled components 
+  - Components thats state is not controlled by react 
+  - Not controlling the state of the component with react
+  - Input components are generally uncontrolled
+
+Controlled components
+  - Components thats state is controlled by react 
