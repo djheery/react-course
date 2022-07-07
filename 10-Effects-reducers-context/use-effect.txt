@@ -1,0 +1,97 @@
+=======================
+Use Effect Dependencies
+=======================
+
+When using use effect you should pass in the dependencies,
+  - The dependencies dictate when the method associated with use effect should be called. 
+    - For example, if you have a dependency of emailInput,
+      - The method will only be called when the emailInput state changes. 
+
+This could look something like this: 
+
+==============================================================
+
+const [emailInput, changeEmailInput] = useState(emailInput);
+
+useEffect(() => {
+  if(!emailInput.contains("@"))
+    changeEmailInput('');
+  
+}, [emailInput])
+
+const setEmailInput(e) => changeEmailInput(e.target.value);
+
+==============================================================
+
+In the example above, imagine that the setEmailInput() method is called onKeyPress{setEmailInput}
+  - Every time it updates the emailInput state for react. 
+  - This will then register a change of input which will invoke the useEffect hook as emailInput is a dependency of this hook
+    - In this circumstance we have some simple validation code within the useEffect hook 
+      - Thus as a "Side Effect" of the input changing this code is automatically called. 
+      - This would allow us to run more complex validation of all the inputs, leading to less code duplication in the circumstance there are more inputs to check.
+  
+You should add most things to the useEffect dependency collection. 
+There are a few exceptions however
+  - You don't need to add state updating functions 
+    - such as changeEmailInput in the example above.
+    - React guarantees that those methods will never change, hence you don't need to add them as dependencies
+  - You don't need to add built-in APIs or methods like fetch() or localStorage()
+    - They also never change. 
+  - You don't need to add variables or methods you may have defined OUTSIDE of your components
+    - I.e if you made a new helper method in a separate file.
+      - These functions or variables are not created inside of a component function and hence changing them won't affect your components
+        - Component's won't be re-evaluated if such variables or methods change and vice-versa
+    
+Basically you should only add the fields that could change because of your component, or parent component being rerendered. 
+  - That is why variables or state defined in component functions, props, or methods defined in component methods have to be added as dependencies
+
+You can add return clean up functions from useEffect: take this modified example from the code above:
+
+useEffect(() => {
+
+  const identifier = setTimeOut(() => {
+    if(!emailInput.contains("@"))
+      changeEmailInput('');
+  }, 500)
+  
+  return () => clearTimeout(identifier)
+}, [emailInput])
+
+As the method will be called on every keyPress, this could be an unecassary overhead.
+  - Although in this case the method could be fast, as the code grows, it could slow down this validation
+    - Thus we only want to check when the user has paused in typing,
+  - This is why we passed a named setTimeOut method 
+    - This code will only execute after a specific amount of time has elapsed
+    - This creates a new issue however, as if the timeout is never cleared, then as the time elapsed is reach, each call to the function will still be called making it redundant 
+  - This is why we return an anonymous method (it does not have to be anonymous) that clears the timeout of the identifier after every method call
+    - By doing this, we clean up the call stack and make sure that the call is only happening when there has been a pause in user input. 
+
+===========
+Final Notes
+===========
+
+If you call use effect with no dependencies, it will be called every time the component is updated
+  - You will rarely use it like this
+
+If you have a clean up method (A return method at the end of your useEffect method)
+  - It will only run after the first render of the component 
+
+If you have an empty array with no dependencies 
+  - The useEffect method would only run once
+  - A cleanup method would only be called when the component is removed from the DOM 
+
+Cleaning up on a timeout is known as debouncing, 
+  - This is effective if an input triggers a HTTP request, as you do not want to trigger thousands of http requests as this will present an unecassary overhead.
+
+You can use object destructuring to pass in dependencies
+  - This is more optimal as if you pass in the say: object.stateToMontior 
+    - The useEffect code will run every time the object is updated rather than just the stateToMonitor value 
+    - This is written like this:
+
+const { stateToMonitor: stm } = object // This will pull out just the stateToMonitor field of the object and assign it an alias of stm 
+
+useEffect(() => {
+  console.log(stm);
+}, [stm])
+
+This will only run when the stateToMonitor field changes in the object

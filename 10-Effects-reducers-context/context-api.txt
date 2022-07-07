@@ -1,0 +1,19 @@
+===========
+Context API
+===========
+
+The issue:
+  - passing up state that should be used in different areas of a program from child components to parent components can cause a long call stack to retrieve the necessary data. This is not optimal. An optimal way to do this would be to pass the state straight from the component that stores it to the component that needs it.
+    - However, in React this is not possible, as unless components are related via a parent, child relationship 2 components will not be connected. For example, think about a program like this:
+
+- <App />
+  - <Auth />
+    - <LoginForm /> 
+  - <Shop />
+    - <ProductList />
+      -<Product />
+  - <Cart />
+
+In this kind of application, the Shop and cart would need to know if a user is logged in, and the cart would need to know when an Individual product has been added. 
+
+You might think, this is fine, we can just pass this information up to the <App /> component; However, whilst this is a solution, This means tha the <App /> component is storing data that it doesn't use. It simply passes it to other components

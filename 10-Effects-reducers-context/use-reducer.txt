@@ -1,0 +1,43 @@
+================================
+Use Reducer for State management
+================================
+
+Use reducer helps with state management 
+  - Like use state but with extra abilities
+  - used for more complex state 
+    - For example
+      - If there are multiple states
+      - Multiple ways of changing the state 
+      - Or there are dependencies to other states. 
+    - In the above circumstances, useState can become hard to manage and error prone
+
+Use reducer is more powerful state management
+  - You should not always use it
+    - It relies on semantics, 
+      - For complex state management use useReducer 
+      - For simple state management us useState
+
+A good example of when to use useReducer is when you update a state that depends on another state. 
+
+An example of the useReducer hook: 
+
+const [state, dispatchMethod] = useReducer(
+                                           reducerMethod,
+                                           initialState,
+                                           initMethod
+                                          );
+
+Notes 
+  - Just like useState, useReducer always returns an array of 2 values
+    - The latest state 
+    - A method to update the state 
+      - This method works slightly differently, more below 
+    - This means you can update the state using array destructuring  
+  
+dispatchMethod
+  - Instead of setting a new state value you will dispatch an action based on the first argument you pass to useReducer (reducerMethod)
+    - A function that is triggered automatically once an action is dispatched (via dispatchMethod())
+      - It receives the latest state snapshot, and should return the new, updated state.
+
+You can set an initialState and an initial method to set the initial state programmatically 
+
