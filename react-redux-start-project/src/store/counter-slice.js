@@ -1,7 +1,7 @@
+import { createSlice } from "@reduxjs/toolkit";
+
 
 const initialCounterState = {counter: 1, showCounter: true}
-const initialAuthState = {isLoggedIn: true}
-
 
 const counterSlice = createSlice({
   name: 'counter', 
@@ -21,3 +21,7 @@ const counterSlice = createSlice({
       }
    }
 });
+
+export const counterActions = counterSlice.actions;
+
+export default counterSlice.reducer;
