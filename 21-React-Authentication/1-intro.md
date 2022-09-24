@@ -35,6 +35,6 @@ Client (Browser) ==> Request (Attached user credentials) ===> Server
     - Key is only known by the server. 
     - The server has not stored this token, but is able to identify that it has created it. 
   - Allows for the decoupling of FrontEnd and BackEnd code. 
-  - Typically JWT (JSON WWeb Tokens) are used.
+  - Typically JWT (JSON Web Tokens) are used.
 
-  
+
